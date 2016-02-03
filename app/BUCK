@@ -1,0 +1,27 @@
+android_binary(
+  name = 'app',
+  manifest = 'src/main/AndroidManifest.xml',
+  keystore = ':debug_keystore',
+  deps =  [':lib'],
+)
+
+android_library(
+  name = "lib",
+  srcs = glob(['src/main/java/**/*.java']),
+  deps = [':res', '//libs/lib1:lib'],
+  visibility = ['PUBLIC']
+)
+
+android_resource(
+  name = 'res',
+  res = 'src/main/res',
+  package = 'com.buckbuild.scenario.buckscenariolibraryresourcemerging',
+  visibility = ['PUBLIC']
+)
+
+keystore(
+  name = 'debug_keystore',
+  store = 'debug.keystore',
+  properties = 'debug.keystore.properties',
+)
+

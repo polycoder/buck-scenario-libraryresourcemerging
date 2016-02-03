@@ -1,0 +1,11 @@
+[android]
+  target = Google Inc.:Google APIs:21
+
+[project]
+  ide = intellij
+  ignore = .git
+
+[color]
+  ui = true
+
+ 

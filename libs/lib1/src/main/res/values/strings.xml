@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lib1</string>
+    <string name="lib_one_value">lib one value</string>
+</resources>
