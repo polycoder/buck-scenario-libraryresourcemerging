@@ -1,9 +1,7 @@
 android_library(
   name = "lib",
   srcs = glob(['src/main/java/**/*.java']),
-  # NOTE: lib1 will NOT BUILD without this, since it depends on merged resources from //libs/lib2:res. Comment out below to see this behavior...
-  #resource_union_package = "com.buckbuild.scenario.lib1",
-  deps = [':res', '//libs/lib2:res', '//libs/lib2:lib'],
+  deps = [':res'],
   visibility = ['PUBLIC']
 )
 
@@ -11,5 +9,7 @@ android_resource(
   name = 'res',
   res = 'src/main/res',
   package = 'com.buckbuild.scenario.lib1',
+  resource_union = True,
+  deps = ['//libs/lib2:res'],
   visibility = ['PUBLIC']
 )
